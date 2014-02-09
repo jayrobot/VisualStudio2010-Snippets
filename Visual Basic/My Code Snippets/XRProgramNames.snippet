@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get ProgramName (or comma separated list of names) from hidden field
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of ProgramName(s) from the hidden field of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRProgramNames
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[' Get the value of ProgramNames from the hidden field
+		Dim ProgramNames As String = String.Empty
+		If Not String.IsNullOrEmpty(_page.hfProgramFKs.Value) Then
+			ProgramNames = _page.hfProgramNames.Value
+		End If
+
+		' if the program names was not populated in the hidden field, get it from current users program fk
+		If Not String.IsNullOrEmpty(ProgramNames) Then
+			'If Not HttpContext.Current.User.IsInRole("Admin") _
+			'	AndAlso Not HttpContext.Current.User.IsInRole("PCANJ") Then
+			ProgramNames = Utilities.GetProgram()
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <SnippetTypes>
+		<SnippetType>Expansion</SnippetType>
+	  </SnippetTypes>
+	  <Title>
+		XtraReport - Get MonthYearOnly from hidden field
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of MonthYearOnly from the hidden field of the catalog viewer
+	  </Description>
+	  <HelpUrl>
+	  </HelpUrl>
+	  <Shortcut>
+		XRProgramFK
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="vb"><![CDATA[Dim MonthYear As String
+		If Not String.IsNullOrEmpty(_page.hfMonthYearOnly.Value) Then
+			MonthYear = _page.hfMonthYearOnly.Value
+		End If]]></Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>

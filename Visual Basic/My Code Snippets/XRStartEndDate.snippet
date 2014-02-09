@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get Start and End Dates from hidden fields
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of startdate and enddate from their respective hidden fields of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRStartEndDate
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim StartDate As Date
+		If Not String.IsNullOrEmpty(_page.hfStartDate.Value) Then
+			StartDate = _page.hfStartDate.Value
+		End If
+
+		Dim EndDate As Date
+		If Not String.IsNullOrEmpty(_page.hfEndDate.Value) Then
+			EndDate = _page.hfEndDate.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get Quarter Start Date from hidden field
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of qtrstartdate from the hidden field of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRQtrStartDate
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim QtrStartDate As Date
+		If Not String.IsNullOrEmpty(_page.hfQtrStartDate.Value) Then
+			QtrStartDate = _page.hfQtrStartDate.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

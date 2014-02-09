@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get Quarter Start and End Dates from hidden fields
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of qtrstartdate and qtrenddate from the hidden field of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRQtrStartAndEndDates
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim QtrStartDate As Date
+		If Not String.IsNullOrEmpty(_page.hfQtrStartDate.Value) Then
+			QtrStartDate = _page.hfQtrStartDate.Value
+		End If
+		
+		Dim QtrEndDate As Date
+		If Not String.IsNullOrEmpty(_page.hfQtrEndDate.Value) Then
+			QtrEndDate = _page.hfQtrEndDate.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		  XtraReport - Get Case Filter (Positive) string and description from hidden fields
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		  Conditionally get the value of casefilterspositive and casefilterpositivedescription from the hidden fields of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRCaseFiltersPositive
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim CaseFiltersPositive As String = Nothing
+		If Not String.IsNullOrEmpty(_page.hfCaseFiltersPositive.Value) Then
+			CaseFiltersPositive = _page.hfCaseFiltersPositive.Value
+		End If
+		Dim CaseFilterPositiveDescription As String = Nothing
+		If Not String.IsNullOrEmpty(_page.hfCaseFilterPositiveDescriptions.Value) Then
+			CaseFilterPositiveDescription = _page.hfSiteName.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

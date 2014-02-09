@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>
+		XtraReport - Get ProgramFK (or comma separated list of FKs) and Name (or comma separated list of Names) from hidden fields
+	  </Title>
+      <Author>
+		jrobohn
+	  </Author>
+      <Description>
+		Conditionally get the value of programfks and programnames from the hidden fields of the catalog viewer
+	  </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+		XRProgramFK(s)AndName(s)
+	  </Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="vb">
+	<![CDATA[Dim ProgramFKs As String = String.Empty
+		If Not String.IsNullOrEmpty(_page.hfProgramFKs.Value) Then
+			ProgramFKs = _page.hfProgramFKs.Value
+		End If
+
+		If String.IsNullOrEmpty(ProgramFKs) Then
+			ProgramFKs = CType(Membership.GetUser(HttpContext.Current.User.Identity.Name), CHsRMembershipUser).Program
+		End If
+
+		' Get the value of ProgramNames from the hidden field
+		Dim ProgramNames As String = String.Empty
+		If Not String.IsNullOrEmpty(_page.hfProgramFKs.Value) Then
+			ProgramNames = _page.hfProgramNames.Value
+		End If
+
+		' if the program names was not populated in the hidden field, get it from current users program fk
+		If String.IsNullOrEmpty(ProgramNames) Then
+			ProgramNames = Utilities.GetProgram()
+		End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

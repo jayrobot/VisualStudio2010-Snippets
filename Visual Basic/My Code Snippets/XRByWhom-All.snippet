@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get all ByWhom related FKs from their respective hidden fields
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the values from all of the hidden fields related to the ByWhom container of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRByWhom-All
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim AllWorkers As Boolean = False
+		If Not String.IsNullOrEmpty(_page.hfAll.Value) Then
+			AllWorkers = (_page.hfAll.Value = "1")
+		End If
+
+		Dim pc1id As String = ""
+		If Not AllWorkers And Not String.IsNullOrEmpty(_page.hfPC1ID.Value) Then
+			pc1id = _page.hfPC1ID.Value
+		End If
+
+		Dim WorkerFK As Nullable(Of Integer)
+		If Not AllWorkers And Not String.IsNullOrEmpty(_page.hfWorkerFK.Value) Then
+			WorkerFK = _page.hfWorkerFK.Value
+		End If
+
+		Dim FAWFK As Nullable(Of Integer)
+		If Not AllWorkers And Not String.IsNullOrEmpty(_page.hfFAWFK.Value) Then
+			FAWFK = _page.hfFAWFK.Value
+		End If
+
+		Dim SupervisorFK As Nullable(Of Integer)
+		If Not AllWorkers And Not String.IsNullOrEmpty(_page.hfSupervisorFK.Value) Then
+			SupervisorFK = _page.hfSupervisorFK.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

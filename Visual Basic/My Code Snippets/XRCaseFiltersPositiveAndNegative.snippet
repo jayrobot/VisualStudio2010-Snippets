@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		  XtraReport - Get Case Filter strings (Positive and Negative) and description from hidden fields
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		  Conditionally get the value of casefilterspositive and casefilterpositivedescription from the hidden fields of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRCaseFiltersPositive
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim posclause As String
+		If Not String.IsNullOrEmpty(_page.hfCaseFiltersPositive.Value) Then
+			posclause = _page.hfCaseFiltersPositive.Value
+		End If
+
+		Dim negclause As String
+		If Not String.IsNullOrEmpty(_page.hfCaseFiltersNegative.Value) Then
+			negclause = _page.hfCaseFiltersNegative.Value
+		End If
+
+		Dim posclausedescription As String
+		If Not String.IsNullOrEmpty(_page.hfCaseFilterPositiveDescriptions.Value) Then
+			posclausedescription = _page.hfCaseFilterPositiveDescriptions.Value
+		End If
+
+		Dim negclausedescription As String
+		If Not String.IsNullOrEmpty(_page.hfCaseFilterNegativeDescriptions.Value) Then
+			negclausedescription = _page.hfCaseFilterNegativeDescriptions.Value
+		End If
+
+		If String.IsNullOrEmpty(_page.hfCaseFilterPositiveDescriptions.Value) And _
+		 String.IsNullOrEmpty(_page.hfCaseFilterNegativeDescriptions.Value) Then
+			posclausedescription = "<-- None -->"
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>
+		XtraReport - Get SiteFK and Site Name from hidden fields
+	  </Title>
+      <Author>
+		jrobohn
+	  </Author>
+      <Description>
+		Conditionally get the value of SiteFK and SiteName from the hidden field of the catalog viewer
+	  </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+		XRSiteFKAndName
+	  </Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="vb"><![CDATA[Dim SiteFK As Nullable(Of Integer)
+    If Not String.IsNullOrEmpty(_page.hfSiteFK.Value) Then
+      SiteFK = _page.hfSiteFK.Value
+    End If
+    Dim SiteName As String = Nothing
+    If Not String.IsNullOrEmpty(_page.hfSiteName.Value) Then
+      SiteName = _page.hfSiteName.Value
+	Else
+	  SiteName = "<-- All -->"
+    End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

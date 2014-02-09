@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>
+		XtraReport - Get ProgramFK (or comma separated list of FKs) from hidden field
+	  </Title>
+      <Author>
+		jrobohn
+	  </Author>
+      <Description>
+		Conditionally get the value of ProgramFKs from the hidden field of the catalog viewer
+	  </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+		XRProgramFKs
+	  </Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="vb"><![CDATA[Dim ProgramFKs As String = Nothing
+		If Not String.IsNullOrEmpty(_page.hfProgramFKs.Value) Then
+			ProgramFKs = _page.hfProgramFKs.Value
+		End If
+
+		If Not HttpContext.Current.User.IsInRole("Admin") _
+		 AndAlso Not HttpContext.Current.User.IsInRole("PCANY") _
+         AndAlso Not HttpContext.Current.User.IsInRole("OCFS") Then
+			ProgramFKs = "," + CType(Membership.GetUser(HttpContext.Current.User.Identity.Name), CHsRMembershipUser).Program.ToString() + ","
+		End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

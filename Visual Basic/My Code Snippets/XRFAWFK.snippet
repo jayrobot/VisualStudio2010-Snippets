@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+	<Header>
+	  <Title>
+		XtraReport - Get FAW FK from hidden field
+	  </Title>
+	  <Author>
+		jrobohn
+	  </Author>
+	  <Description>
+		Conditionally get the value of fawfk from the hidden field of the catalog viewer
+	  </Description>
+	  <Shortcut>
+		XRFAWFK
+	  </Shortcut>
+	</Header>
+	<Snippet>
+	  <Code Language="VB">
+		<![CDATA[Dim FAWFK As Nullable(Of Integer)
+		If Not String.IsNullOrEmpty(_page.hfFAWFK.Value) Then
+			FAWFK = _page.hfFAWFK.Value
+		End If]]>
+	  </Code>
+	</Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

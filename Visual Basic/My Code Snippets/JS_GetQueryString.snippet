@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>
+        JS GetQueryString
+      </Title>
+      <Author>
+        CHSR 
+      </Author>
+      <Description>
+        Uses javascript to retrieve a pages' QueryString
+      </Description>
+      <Shortcut>
+        GetQueryString
+      </Shortcut>
+      </Header>
+    <Snippet>
+      <Code Language="VB">
+        <![CDATA[
+        <script type="text/javascript">
+          <!--
+
+          function GetQueryString(strQS) {
+            hu = window.location.search.substring(1);
+            gy = hu.split("&");
+            for (i = 0; i < gy.length; i++) {
+              ft = gy[i].split("=");
+              if (ft[0] == strQS) {
+                return ft[1];
+              }
+            }
+          }
+
+        //  var koko = querySt("koko");
+
+        //  document.write(koko);
+        //  document.write("<br>");
+        //  document.write(hu);
+
+        -->
+        </script>
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+
